@@ -33,7 +33,7 @@ import HomeFeed from '@/components/HomeFeed.vue';
                         <span>Rank</span>
                     </Link>
 
-                    <Link class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:border-[#81E1FF] hover:bg-[#81E1FF]/90 hover:text-black cursor-pointer" :href="route('home')">
+                    <Link class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:border-[#81E1FF] hover:bg-[#81E1FF]/90 hover:text-black cursor-pointer" :href="route('cards.all')">
                         <Home class="h-4 w-4"/>
                         <span>Cartas</span>
                     </Link>
@@ -69,8 +69,8 @@ import HomeFeed from '@/components/HomeFeed.vue';
             </nav>
         </header>
         <div class="duration-750 starting:opacity-0 flex w-full justify-center opacity-100 transition-opacity lg:grow">
-            <main class="flex w-full h-full max-w-[335px] flex-col-reverse overflow-hidden rounded-lg lg:max-w-4xl lg:flex-row">
-                <HomeFeed />
+            <main class="flex justify-center w-full h-full max-w-[335px] flex-col-reverse overflow-hidden rounded-lg lg:max-w-4xl lg:flex-row">
+                <slot/>
             </main>
         </div>
         <div class="h-14.5 hidden lg:block"></div>
