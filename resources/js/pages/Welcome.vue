@@ -2,7 +2,6 @@
 import { Head, Link } from '@inertiajs/vue3';
 import { LogOut } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
-import HomeFeed from '@/components/HomeFeed.vue';
 
 </script>
 
@@ -11,29 +10,29 @@ import HomeFeed from '@/components/HomeFeed.vue';
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
-    <div class="flex min-h-screen flex-col items-center bg-[#121314] p-6 text-[#1b1b18]">
-        <header class="not-has-[nav]:hidden mb-6 w-full max-w-[335px] text-sm lg:max-w-6xl">
+    <div class="flex min-h-screen flex-col items-center text-[#1b1b18]">
+        <header class="bg-[#111111] p-4 not-has-[nav]:hidden mb-6 w-full text-sm">
             <nav class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                     <h1 class="text-[#C5C7C6] text-2xl font-bold mr-6">PPT 2</h1>
 
 
-                    <Link class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:border-[#81E1FF] hover:bg-[#81E1FF]/90 hover:text-black cursor-pointer" :href="route('home')">
+                    <Link class="nav-link" :href="route('home')">
                         <Home class="h-4 w-4"/>
                         <span>Início</span>
                     </Link>
 
-                    <Link class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:border-[#81E1FF] hover:bg-[#81E1FF]/90 hover:text-black cursor-pointer" :href="route('home')">
+                    <Link class="nav-link" :href="route('decks.all')">
                         <Home class="h-4 w-4"/>
                         <span>Deck</span>
                     </Link>
 
-                    <Link class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:border-[#81E1FF] hover:bg-[#81E1FF]/90 hover:text-black cursor-pointer" :href="route('home')">
+                    <Link class="nav-link" :href="route('home')">
                         <Home class="h-4 w-4"/>
                         <span>Rank</span>
                     </Link>
 
-                    <Link class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:border-[#81E1FF] hover:bg-[#81E1FF]/90 hover:text-black cursor-pointer" :href="route('cards.all')">
+                    <Link class="nav-link" :href="route('cards.all')">
                         <Home class="h-4 w-4"/>
                         <span>Cartas</span>
                     </Link>
@@ -54,13 +53,13 @@ import HomeFeed from '@/components/HomeFeed.vue';
                     <template v-else>
                         <Link
                             :href="route('login')"
-                            class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:bg-[#C5C7C6]/90 hover:text-black cursor-pointer"
+                            class="nav-link-button shadow-custom"
                         >
                             Entrar
                         </Link>
                         <Link
                             :href="route('register')"
-                            class="py-2 px-4 h-9 border border-[#C5C7C6] text-[#C5C7C6] hover:bg-[#C5C7C6]/90 hover:text-black cursor-pointer"
+                            class="nav-link-button shadow-custom"
                         >
                             Criar conta
                         </Link>
@@ -69,7 +68,7 @@ import HomeFeed from '@/components/HomeFeed.vue';
             </nav>
         </header>
         <div class="duration-750 starting:opacity-0 flex w-full justify-center opacity-100 transition-opacity lg:grow">
-            <main class="flex justify-center w-full h-full max-w-[335px] flex-col-reverse overflow-hidden rounded-lg lg:max-w-4xl lg:flex-row">
+            <main class="flex justify-center w-full h-full flex-col-reverse overflow-hidden lg:max-w-6xl lg:flex-row">
                 <slot/>
             </main>
         </div>

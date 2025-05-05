@@ -17,8 +17,8 @@ class Card extends Model
         'percentage_drop'
     ];
 
-    /* public function getCard()
+    public function decks()
     {
-        return $this->hasMany(Card::class);
-    } */
+        return $this->belongsToMany(Deck::class);
+    }
 }
