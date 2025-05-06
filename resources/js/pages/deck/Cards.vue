@@ -42,10 +42,10 @@ const clearFilters = () => {
 </script>
 
 <template>
-    <div class="flex flex-col gap-4 py-[10vh]">
+    <div class="">
         <h1 class="text-white text-2xl font-bold">Toda as cartas</h1>
         <div class="text-white flex flex-row gap-2">
-            <div class="p-4 bg-[#111111] flex flex-col gap-2 h-fit">
+            <div class="p-4 bg-[#111111]/80 flex flex-col gap-2 h-fit">
                 <!-- Filtro: Tipo -->
                 <div class="w-[120px]">
                     <p class="text-white font-bold mb-2 text-sm">Tipo</p>
@@ -94,7 +94,7 @@ const clearFilters = () => {
             </div>
                 </div>
             </div>
-            <div class="grid grid-cols-4 gap-4 mb-6 px-2">
+            <div class="grid grid-cols-4 gap-4 px-2">
                 <Card v-for="card in filteredCards" :key="card.id" :card="card" class="aspect-[2/3]" />
             </div>
 

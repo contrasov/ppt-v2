@@ -26,7 +26,7 @@ class DeckController extends Controller
         $card_deck = Card::whereIn('id', function ($query) {
             $query->select('card_id')
                 ->from('deck_card')
-                ->where('deck_id', Deck::where('user_id', Auth::user()->id)->pluck('id'));
+                ->whereIn('deck_id', Deck::where('user_id', Auth::user()->id)->pluck('id'));
         })->get();
 
         return Inertia::render('deck/Decks', [

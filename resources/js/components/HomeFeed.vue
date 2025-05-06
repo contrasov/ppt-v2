@@ -15,7 +15,7 @@ const posts = [
 
 <template>
     <div>
-        <div class="text-white w-full py-[10vh] gap-3 flex flex-col">
+        <div class="text-white py-[3vh] gap-3 flex flex-col">
             <h1 class="text-6xl font-bold max-w-3xl leading-tight">Um jogo de cartas usando PEDRA, PAPEL e TESOURA</h1>
             <p class="text-lg max-w-2xl text-gray-400">
                 "Um jogo de cartas que usa a lógica do PEDRA, PAPEL e TESOURA."

@@ -194,7 +194,7 @@
   }
 
   .nav-link-button {
-    @apply flex items-center justify-center py-2 px-4 h-9 border-2 border-[#1D1E1F] text-white font-bold hover:bg-[#81e1ff] hover:text-black transition-colors;
+    @apply flex items-center justify-center py-2 px-4 h-9 border border-white text-white font-bold hover:bg-[#81e1ff] hover:text-black transition-colors;
   }
 
   .shadow-custom {
@@ -206,7 +206,15 @@
   }
 
   .bg-image {
-    background-image: url('https://images7.alphacoders.com/129/1299606.jpg');
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/006/165/555/large/servane-altermatt-foret.jpg?1496498545');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .bg-image-auth {
+    background-image: url('https://i.pinimg.com/originals/d6/22/0d/d6220dbdcfacb82e96b37fafff5773e6.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
