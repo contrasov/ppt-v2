@@ -12,20 +12,25 @@ const props = defineProps<{
   status: string
   token?: string
   players?: number[]
+  queue?: number[]
 }>()
 
 let interval: number | undefined
 
 const searchMatch = () => {
-  // Primeira tentativa
   router.visit(route('matchmaking.search'), {
     method: 'post',
     preserveState: true,
     preserveScroll: true,
-    only: ['status', 'token', 'players'],
+    only: ['status', 'token', 'players', 'queue'],
+    onFinish: () => {
+      router.visit(route('matchmaking'), {
+        preserveState: true,
+        preserveScroll: true,
+      })
+    }
   })
 
-  // Inicia polling
   interval = setInterval(() => {
     if (props.status !== 'matched') {
       router.visit(route('matchmaking.search'), {

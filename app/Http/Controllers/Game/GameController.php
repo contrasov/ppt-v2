@@ -20,9 +20,15 @@ class GameController extends Controller
             return redirect()->route('home')->with('error', 'Jogo não encontrado.');
         }
 
-        [$player1, $player2] = $matchedGames[$token];
+        [$p1, $p2] = $matchedGames[$token];
 
-        if (!in_array(Auth::id(), [$player1, $player2])) {
+        if (Auth::id() === $p1['id']) {
+            $player1 = $p1;
+            $player2 = $p2;
+        } elseif (Auth::id() === $p2['id']) {
+            $player1 = $p2;
+            $player2 = $p1;
+        } else {
             return redirect()->route('home')->with('error', 'Você não tem permissão para acessar este jogo.');
         }
 
@@ -35,7 +41,9 @@ class GameController extends Controller
 
         return Inertia::render('game/Game', [
             'deck' => $deck,
-            'card_deck' => $card_deck
+            'card_deck' => $card_deck,
+            'player1' => $player1['username'],
+            'player2' => $player2['username']
         ]);
     }
 }

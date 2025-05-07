@@ -14,4 +14,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('matchmaking', [MatchmakingController::class, 'show'])
         ->name('matchmaking');
+
+    Route::post('matchmaking/give-up', [MatchmakingController::class, 'giveUp'])
+        ->name('matchmaking.give-up');
 });

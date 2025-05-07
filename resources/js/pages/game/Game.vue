@@ -2,7 +2,7 @@
 import Card from '@/components/Card.vue';
 import { Button } from '@/components/ui/button';
 import { Head, Link } from '@inertiajs/vue3';
-
+import { router } from '@inertiajs/vue3';
 const props = defineProps<{
     decks: {
         id: number;
@@ -21,8 +21,34 @@ const props = defineProps<{
         points: number;
         percentage_drop: number;
     }[];
+    player1: {
+        id: number;
+        name: string;
+        points: number;
+        percentage_drop: number;
+    };
+    player2: {
+        id: number;
+        name: string;
+        points: number;
+        percentage_drop: number;
+    };
 }>();
 
+const giveUp = () => {
+    router.visit(route('matchmaking.give-up'), {
+    method: 'post',
+    preserveState: true,
+    preserveScroll: true,
+    only: ['status', 'token', 'players'],
+    onFinish: () => {
+        router.visit(route('matchmaking'), {
+            preserveState: true,
+            preserveScroll: true,
+        })
+    }
+  })
+}
 </script>
 
 <template>
@@ -42,7 +68,7 @@ const props = defineProps<{
                     <div class="w-[230px] p-4 h-full items-center flex flex-col gap-2 justify-end">
                         <div class="flex flex-row gap-2 items-center w-full">
                             <div class="w-[40px] h-[40px] border"></div>
-                            <p>Username</p>
+                            <p>{{ player1 }}</p>
                         </div>
                         <div class="w-full bg-[#07EF9C]/40 h-[40px] border flex items-center justify-center">
                             <p class="font-bold">100/100</p>
@@ -100,10 +126,10 @@ const props = defineProps<{
                  <div class="absolute p-2 w-full h-[200px] top-0 flex flex-row items-center justify-between">
                     <div class="w-[200px] h-full flex flex-col gap-2 items-center justify-center">
                         <Button variant="game">
-                            <p>Lorem</p>
+                            <p>Reportar</p>
                         </Button>
                         <Button variant="game">
-                            <p>Lorem</p>
+                            <p @click="giveUp">Desistir (ff)</p>
                         </Button>
                     </div>
                     
@@ -114,7 +140,7 @@ const props = defineProps<{
                     <div class="w-[200px] p-4 h-full items-center flex flex-col gap-2 justify-start">
                         <div class="flex flex-row gap-2 items-center w-full">
                             <div class="w-[40px] h-[40px] border"></div>
-                            <p>Username</p>
+                            <p>{{ player2 }}</p>
                         </div>
                         <div class="w-full bg-[#07EF9C]/40 h-[40px] border flex items-center justify-center">
                             <p class="font-bold">100/100</p>
